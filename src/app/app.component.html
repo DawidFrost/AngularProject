@@ -1,0 +1,147 @@
+<link rel="stylesheet" href="assets/forms.css">
+
+
+<form #form="ngForm" [formGroup]="userData" (ngSubmit)="onSubmit(form)">
+<div class="form-group">
+    <div class="col-sm-6">
+<label class="form-control" for="name">First Name:</label>
+<input class="form-control" type="text" name="" id="name"  formControlName="name" trim>
+<div *ngIf="userData.controls['name'].invalid && (userData.controls['name'].dirty || userData.controls['name'].touched)" class="alert alert-danger">
+        <div *ngIf="userData.controls['name'].errors.required">
+                First Name is required.
+        </div>
+</div>
+</div>
+<div class="col-sm-6">
+<label class="form-control" for="surname">Last Name:</label>
+<input class="form-control" type="text" name="" id="surname"  formControlName="surname" trim>
+<div *ngIf="userData.controls['surname'].invalid && (userData.controls['surname'].dirty || userData.controls['surname'].touched)" class="alert alert-danger">
+        <div *ngIf="userData.controls['surname'].errors.required">
+                Last Name is required.
+        </div>
+</div>
+</div>
+</div>
+<div class="form-group">
+<div class="col-sm-6">
+<label class="form-control" for="email">Email:</label>
+<input class="form-control" type="text" name="" id="email"  formControlName="email" trim>
+<div *ngIf="userData.controls['email'].invalid && (userData.controls['email'].dirty || userData.controls['email'].touched)" class="alert alert-danger">
+        <div *ngIf="userData.controls['email'].errors.required">
+               Email is required.
+        </div>
+</div>
+</div>
+<div class="col-sm-6">
+<label class="form-control" for="phone">Phone:</label>
+<input class="form-control" type="text" name="" id="phone"  formControlName="phone" trim>
+<div *ngIf="userData.controls['phone'].invalid && (userData.controls['phone'].dirty || userData.controls['phone'].touched)" class="alert alert-danger">
+        <div *ngIf="userData.controls['phone'].errors.pattern">
+                Phone can only contain digitals and () + -
+        </div>
+</div>
+</div>
+</div>
+
+<div class="col-sm-6">
+<label class="form-control" for="password">Password:</label>
+<input class="form-control" type="password" name="" id="password"  formControlName="password"  required pattern='^.*(?=.{8,})(?=.*[A-Z])(?=.*[@#$%^&]).*$' required validateEqual="password" trim>
+<div *ngIf="userData.controls['password'].invalid && (userData.controls['password'].dirty || userData.controls['password'].touched)" class="alert alert-danger">
+        <div *ngIf="userData.controls['password'].errors.required">
+                Password is required
+        </div>
+        <div *ngIf="userData.controls['password'].errors.pattern">
+                Password must contain at least one upper case letter,one of symbols: @ # $ % ^ & and lenght at least 8 
+        </div>
+</div> 
+</div>
+
+<div class="col-sm-6">
+        <label class="form-control" for="confirmPass">Confirm Password:</label>
+        <input class="form-control" type="password" name="" id="confirmPass"  formControlName="confirmPass" trim>
+        <div *ngIf="userData.errors?.matchPasswords" class="alert alert-danger">
+                Password don't match
+            
+        </div> 
+</div>
+        
+
+
+<div class="col-sm-6">
+    <label class="form-control" for="pet">Pet</label>
+<label class="col-sm-4">
+    <input type="radio"  value="dog"  formControlName="pet">
+        <span>Dog</span>
+</label>
+<label class="col-sm-4">
+     <input type="radio" value="cat" formControlName="pet">
+        <span>Cat</span>
+</label>
+<label class="col-sm-4">
+        <input type="radio" value="other" formControlName="pet">
+           <span>Other</span>
+   </label>
+</div>
+
+<div class="form-group col-sm-12" style="padding:0px" >
+<div  style="display:block" formGroupName="address" >
+       
+<div class="col-sm-6">
+<label class="form-control" for="city">City:</label>
+<input class="form-control" type="text" name="" id="city"  formControlName="city" trim>
+<div *ngIf="userData.controls['address'].controls['city'].invalid && (userData.controls['address'].controls['city'].dirty ||userData.controls['address'].controls['city'].touched)" class="alert alert-danger">
+        <div *ngIf="userData.controls['address'].controls['city'].errors.required">
+               City is required.
+        </div>
+</div>
+</div>
+<div class="col-sm-6">
+<label class="form-control" for="street">Street:</label>
+<input class="form-control" type="text" name="" id="street"  formControlName="street" trim>
+<div *ngIf="userData.controls['address'].controls['street'].invalid && (userData.controls['address'].controls['street'].dirty || userData.controls['address'].controls['street'].touched)" class="alert alert-danger">
+        <div *ngIf="userData.controls['address'].controls['street'].errors.required">
+                Street is required.
+        </div>
+</div>
+</div>
+
+<div class="col-sm-6">
+<label class="form-control" for="building">Building:</label>
+<input class="form-control" type="text" name="" id="building"  formControlName="building" trim>
+<div *ngIf="userData.controls['address'].controls['building'].invalid && (userData.controls['address'].controls['building'].dirty ||userData.controls['address'].controls['building'].touched)" class="alert alert-danger">
+        <div *ngIf="userData.controls['address'].controls['building'].errors.required">
+                Building is required.
+        </div>
+</div>
+</div>
+<div class="col-sm-6">
+<label class="form-control" for="flatNo">Flat Number:</label>
+<input class="form-control" type="text" name="" id="flatNo"  formControlName="flatNo" trim>
+<div *ngIf="userData.controls['address'].controls['flatNo'].invalid && (userData.controls['address'].controls['flatNo'].dirty || userData.controls['address'].controls['flatNo'].touched)" class="alert alert-danger">
+        <div *ngIf="userData.controls['address'].controls['flatNo'].errors.pattern">
+                Flat number must contain only numbers.
+        </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="form-group col-sm-12" style="padding:0px" >
+        <fieldset  style=" display: block" formGroupName="consents" >
+                <div class="col-sm-3" style="text-align: center">
+                        <label class="form-control" for="newsletter">Newsletter:</label>
+                        <input  type="checkbox" name="" id="newsletter"  formControlName="newsletter">
+                </div>
+                <div class="col-sm-3" id="smsDiv" style="text-align: center;display:none">
+                        <label class="form-control" for="sms">sms:</label>
+                        <input type="checkbox" name="" id="sms"  formControlName="sms">
+                </div>
+        </fieldset>
+</div>
+<div class="col-sm-12">
+<button type="submit" [disabled]='!userData.valid'>Submit</button>
+</div>
+</form>
+
+<pre>{{userData.value | json}}</pre>
