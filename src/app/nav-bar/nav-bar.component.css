@@ -1,0 +1,38 @@
+nav {
+    position: relative;
+    z-index: 1;
+    background-color: rgb(44, 86, 50);
+    height: 55px;
+  }
+  
+  .nav-logo {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    color: white;
+    font-size: 36px;
+  }
+  
+  .nav-logo a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .nav-login-button {
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    }
+  
+  a.disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+  .col-sm-2{
+    color: white;
+    font-size: 30px;
+    margin-top: 5px;
+  }

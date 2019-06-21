@@ -1,0 +1,36 @@
+<app-nav-bar></app-nav-bar>
+
+
+<div fxLayout>
+
+  <div fxFlex fxLayoutAlign="center center">
+
+    <form [formGroup]="signupForm" (ngSubmit)="login(signupForm)" class="example-form">
+
+      <div class="example-full-width">
+        <input class="form-control" formControlName="login" placeholder="Login" value="">
+        <div *ngIf="signupForm.get('login').invalid && (signupForm.get('login').dirty || signupForm.get('login').touched)" class="alert alert-danger">
+          <div *ngIf="signupForm.get('login').hasError('required')">This field is 
+            <strong>required</strong>
+          </div>
+       </div>
+        
+      </div>
+
+      <div class="example-full-width">
+        <input class="form-control" type="password" formControlName="password" placeholder="Password" value="">
+        <div *ngIf="signupForm.get('password').invalid && (signupForm.get('password').dirty || signupForm.get('password').touched)" class="alert alert-danger">
+        <div *ngIf="signupForm.get('password').hasError('required')">This field is 
+            <strong>required</strong>
+        </div>
+        </div>
+      </div>
+      <div>
+        <button style="float:right" type="submit" [disabled]="!signupForm.valid" >Login</button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

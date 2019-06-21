@@ -1,0 +1,28 @@
+.example-form {
+    padding-top: 10px;
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  
+    
+  }
+  
+  .example-full-width {
+    width: 100%;
+    
+  }
+  
+  
+  .alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    
+
+}
+.alert-danger[_ngcontent-kog-c1] {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  
+}

@@ -1,0 +1,14 @@
+<nav fxLayout class="z-shadow-2">
+  <div class="col-sm-2">
+      <a *ngIf="buttonRegister"  class="nav-login-button" routerLink="/register-form">Register</a>
+  </div>
+  <div class="nav-logo col-sm-8"  >
+   
+  </div>
+  <div class="col-sm-2" style="text-align: right">
+    <a *ngIf="buttonLogin"  class="nav-login-button" routerLink="/home">Login </a>
+    <a *ngIf="buttonHome"  class="nav-login-button" routerLink="/"> Home</a>
+
+    <a *ngIf="buttonLogout"  class="nav-login-button" (click)="logout()">Sign Out</a>
+  </div>
+</nav>
